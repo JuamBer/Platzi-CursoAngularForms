@@ -8,7 +8,7 @@
     </button>
   </p>
 
-  <p>
+  <p class="error-message" [class.active]="!isNameFieldValid">
     <strong *ngIf="nameField.touched && nameField.hasError('required')">
       Este campo es requerido
     </strong>
