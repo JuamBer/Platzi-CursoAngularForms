@@ -71,4 +71,22 @@
     Description: {{ descriptionField.value }}
     <textarea type="text" [formControl]="descriptionField"> </textarea>
   </p>
+
+  <p>
+    Category: {{ categoryField.value }}
+    <select [formControl]="categoryField">
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </p>
+
+  <p>
+    Category Multiple: {{ categoriesField.value }}
+    <select [formControl]="categoriesField" multiple>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </p>
 </div>
