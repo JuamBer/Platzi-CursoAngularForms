@@ -1,53 +1,49 @@
 <div class="container">
   <h1>Form Builder</h1>
   <form [formGroup]="form" (ngSubmit)="save($event)">
-    <p>
-      Name:{{ getField('getField("name")?')?.value }} Valid:
-      {{ getField("name")?.valid }}
-      <input type="text" formControlName="name" />
+    <div *ngVar="'fullName' as fromGroup" [formGroupName]="fromGroup">
+      <div *ngVar="'name' as field">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ field | titlecase }}</mat-label>
+          <input matInput type="text" [formControlName]="field" />
+        </mat-form-field>
+        <app-form-errors
+          [field]="getField(fromGroup + '.' + field)"
+        ></app-form-errors>
+      </div>
+      <div *ngVar="'last' as field">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ field | titlecase }}</mat-label>
+          <input matInput type="text" [formControlName]="field" />
+        </mat-form-field>
+        <app-form-errors
+          [field]="getField(fromGroup + '.' + field)"
+        ></app-form-errors>
+      </div>
+    </div>
+    <div *ngVar="'email' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="email" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
-      <button (click)="getNameValue()" [disabled]="getField('name')?.invalid">
-        Get Value
-      </button>
-    </p>
+    <div *ngVar="'phone' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="phone" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
-    <p class="error-message" [class.active]="!isNameValid">
-      <strong
-        *ngIf="
-          getField('name')?.touched && getField('name')?.hasError('required')
-        "
-      >
-        Este campo es requerido
-      </strong>
-      <strong
-        *ngIf="
-          getField('name')?.touched && getField('name')?.hasError('maxlength')
-        "
-      >
-        Maximo 10 caracteres
-      </strong>
-    </p>
-
-    <!-- <code>
-        <pre>
-            {{ name | json }}
-        </pre>
-    </code> -->
-
-    <p>
-      Email:{{ getField("email")?.value }}
-      <input type="email" formControlName="email" />
-    </p>
-
-    <p>
-      Phone:{{ getField("phone")?.value }}
-      <input type="tel" formControlName="phone" />
-    </p>
-
-    <p>
-      Color:{{ getField("color")?.value }}
-      <input type="color" formControlName="color" />
-    </p>
+    <div *ngVar="'color' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="color" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
     <p>
       Date:{{ getField("date")?.value }}
@@ -59,20 +55,21 @@
       <input type="month" formControlName="month" />
     </p>
 
-    <p>
-      Age:{{ getField("age")?.value }}
-      <input type="number" formControlName="age" />
-    </p>
+    <div *ngVar="'age' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="number" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
-    <p>
-      Password:{{ getField("password")?.value }}
-      <input type="password" formControlName="password" />
-    </p>
-
-    <p>
-      Range Price:{{ getField("price")?.value }}
-      <input type="range" formControlName="price" min="0" max="100" />
-    </p>
+    <div *ngVar="'password' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="password" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
     <p>
       Wekend:{{ getField("week")?.value }}
@@ -84,10 +81,13 @@
       <input type="datetime-local" formControlName="time" />
     </p>
 
-    <p>
-      Search:{{ getField("search")?.value }}
-      <input type="search" formControlName="search" />
-    </p>
+    <div *ngVar="'search' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="search" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div>
 
     <p>
       Description:{{ getField("description")?.value }}
@@ -112,28 +112,22 @@
       </select>
     </p>
 
-    <p>
-      Agree:{{ getField("agree")?.value }}
-      <input type="checkbox" formControlName="agree" />
-    </p>
+    <!-- <div *ngVar="'agree' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="checkbox" [formControlName]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div> -->
 
-    <p>
-      Agree:{{ getField("agree")?.value }}
-      <input type="checkbox" formControlName="agree" />
-    </p>
+    <!-- <div *ngVar="'gender' as field">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input matInput type="radio" [formControlName]="field" [name]="field" />
+      </mat-form-field>
+      <app-form-errors [field]="getField(field)"></app-form-errors>
+    </div> -->
 
-    <p>
-      Gender:{{ getField("gender")?.value }}
-      <label *ngFor="let gender of genders">
-        <input
-          type="radio"
-          formControlName="gender"
-          [value]="gender"
-          name="gender"
-        />
-        {{ gender | titlecase }}</label
-      >
-    </p>
     <p>
       <button type="submit" [disabled]="form.invalid">Enviar disabled</button>
       <button type="submit">Enviar touched</button>
