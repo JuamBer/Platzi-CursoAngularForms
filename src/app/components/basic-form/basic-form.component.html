@@ -89,4 +89,27 @@
       </option>
     </select>
   </p>
+
+  <p>
+    Agree: {{ agreeField.value }}
+    <input type="checkbox" [formControl]="agreeField" />
+  </p>
+
+  <p>
+    Agree: {{ agreeField.value }}
+    <input type="checkbox" [formControl]="agreeField" />
+  </p>
+
+  <p>
+    Gender: {{ genderField.value }}
+    <label *ngFor="let gender of genders">
+      <input
+        type="radio"
+        [formControl]="genderField"
+        [value]="gender"
+        name="gender"
+      />
+      {{ gender | titlecase }}</label
+    >
+  </p>
 </div>

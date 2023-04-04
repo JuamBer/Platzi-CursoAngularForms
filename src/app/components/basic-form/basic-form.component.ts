@@ -22,8 +22,11 @@ export class BasicFormComponent implements OnInit {
   descriptionField = new FormControl('');
   categoryField = new FormControl();
   categoriesField = new FormControl([]);
+  agreeField = new FormControl(false);
+  genderField = new FormControl(undefined);
 
   categories: string[] = ['cat-1', 'cat-2', 'cat-3', 'cat-4', 'cat-5', 'cat-6'];
+  genders: string[] = ['male', 'female', 'other'];
 
   constructor() {}
 
