@@ -1,16 +1,27 @@
 <div class="container">
   <p>
-    Name: {{ nameField.value }}
+    Name: {{ nameField.value }} Valid: {{ nameField.valid }}
     <input type="text" [formControl]="nameField" />
 
-    <button (click)="getNameValue()">Get Value</button>
+    <button (click)="getNameValue()" [disabled]="nameField.invalid">
+      Get Value
+    </button>
+  </p>
 
-    <!-- <code>
+  <p>
+    <strong *ngIf="nameField.touched && nameField.hasError('required')">
+      Este campo es requerido
+    </strong>
+    <strong *ngIf="nameField.touched && nameField.hasError('maxlength')">
+      Maximo 10 caracteres
+    </strong>
+  </p>
+
+  <!-- <code>
         <pre>
             {{ nameField | json }}
         </pre>
     </code> -->
-  </p>
 
   <p>
     Email: {{ emailField.value }}
