@@ -1,0 +1,142 @@
+<div class="container">
+  <h1>Form Builder</h1>
+  <form [formGroup]="form" (ngSubmit)="save($event)">
+    <p>
+      Name:{{ getField('getField("name")?')?.value }} Valid:
+      {{ getField("name")?.valid }}
+      <input type="text" formControlName="name" />
+
+      <button (click)="getNameValue()" [disabled]="getField('name')?.invalid">
+        Get Value
+      </button>
+    </p>
+
+    <p class="error-message" [class.active]="!isNameValid">
+      <strong
+        *ngIf="
+          getField('name')?.touched && getField('name')?.hasError('required')
+        "
+      >
+        Este campo es requerido
+      </strong>
+      <strong
+        *ngIf="
+          getField('name')?.touched && getField('name')?.hasError('maxlength')
+        "
+      >
+        Maximo 10 caracteres
+      </strong>
+    </p>
+
+    <!-- <code>
+        <pre>
+            {{ name | json }}
+        </pre>
+    </code> -->
+
+    <p>
+      Email:{{ getField("email")?.value }}
+      <input type="email" formControlName="email" />
+    </p>
+
+    <p>
+      Phone:{{ getField("phone")?.value }}
+      <input type="tel" formControlName="phone" />
+    </p>
+
+    <p>
+      Color:{{ getField("color")?.value }}
+      <input type="color" formControlName="color" />
+    </p>
+
+    <p>
+      Date:{{ getField("date")?.value }}
+      <input type="date" formControlName="date" />
+    </p>
+
+    <p>
+      Month:{{ getField("month")?.value }}
+      <input type="month" formControlName="month" />
+    </p>
+
+    <p>
+      Age:{{ getField("age")?.value }}
+      <input type="number" formControlName="age" />
+    </p>
+
+    <p>
+      Password:{{ getField("password")?.value }}
+      <input type="password" formControlName="password" />
+    </p>
+
+    <p>
+      Range Price:{{ getField("price")?.value }}
+      <input type="range" formControlName="price" min="0" max="100" />
+    </p>
+
+    <p>
+      Wekend:{{ getField("week")?.value }}
+      <input type="week" formControlName="week" />
+    </p>
+
+    <p>
+      Date and time:{{ getField("time")?.value }}
+      <input type="datetime-local" formControlName="time" />
+    </p>
+
+    <p>
+      Search:{{ getField("search")?.value }}
+      <input type="search" formControlName="search" />
+    </p>
+
+    <p>
+      Description:{{ getField("description")?.value }}
+      <textarea type="text" formControlName="description"> </textarea>
+    </p>
+
+    <p>
+      Category:{{ getField("category")?.value }}
+      <select formControlName="category">
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </p>
+
+    <p>
+      Category Multiple:{{ getField("categories")?.value }}
+      <select formControlName="categories" multiple>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </p>
+
+    <p>
+      Agree:{{ getField("agree")?.value }}
+      <input type="checkbox" formControlName="agree" />
+    </p>
+
+    <p>
+      Agree:{{ getField("agree")?.value }}
+      <input type="checkbox" formControlName="agree" />
+    </p>
+
+    <p>
+      Gender:{{ getField("gender")?.value }}
+      <label *ngFor="let gender of genders">
+        <input
+          type="radio"
+          formControlName="gender"
+          [value]="gender"
+          name="gender"
+        />
+        {{ gender | titlecase }}</label
+      >
+    </p>
+    <p>
+      <button type="submit" [disabled]="form.invalid">Enviar disabled</button>
+      <button type="submit">Enviar touched</button>
+    </p>
+  </form>
+</div>
