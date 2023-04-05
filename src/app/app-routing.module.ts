@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'form-builder',
     component: FormBuilderComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
 ];
 

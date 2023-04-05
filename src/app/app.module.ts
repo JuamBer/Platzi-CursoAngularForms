@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +15,9 @@ import { BasicFormComponent } from './components/basic-form/basic-form.component
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { FormErrorsComponent } from './components/form-errors/form-errors.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
+import { RegisterComponent } from './components/register/register.component';
 import { VarDirective } from './directives/var.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,7 @@ import { VarDirective } from './directives/var.directive';
     VarDirective,
     FormErrorsComponent,
     FormErrorsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { VarDirective } from './directives/var.directive';
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
