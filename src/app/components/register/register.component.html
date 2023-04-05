@@ -15,6 +15,13 @@
                 matInput
                 type="email"
               />
+              <div
+                *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+              >
+                <mat-error *ngIf="form.get('email')?.hasError('not_available')">
+                  Email ya registrado
+                </mat-error>
+              </div>
             </mat-form-field>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { AppValidators } from 'src/app/validators/app-validators';
 
 @Component({
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private usuariosService: UsuariosService,
     private router: Router // private authService: AuthService
   ) {
     this.buildForm();
@@ -33,7 +35,11 @@ export class RegisterComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group(
       {
-        email: ['', [Validators.required]],
+        email: [
+          '',
+          [Validators.required],
+          [AppValidators.validateEmail(this.usuariosService)],
+        ],
         password: [
           '',
           [
