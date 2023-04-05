@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
+import { CvaComponent } from './components/cva/cva.component';
 import { FormArrayComponent } from './components/form-array/form-array.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'form-array',
     component: FormArrayComponent,
+  },
+  {
+    path: 'cva',
+    component: CvaComponent,
   },
 ];
 

@@ -13,12 +13,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
+import { CvaComponent } from './components/cva/cva.component';
 import { FormArrayComponent } from './components/form-array/form-array.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { FormErrorsComponent } from './components/form-errors/form-errors.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { RegisterComponent } from './components/register/register.component';
 import { VarDirective } from './directives/var.directive';
+import { StepperComponent } from './shared/components/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { VarDirective } from './directives/var.directive';
     FormErrorsComponent,
     RegisterComponent,
     FormArrayComponent,
+    StepperComponent,
+    StepperComponent,
+    CvaComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,6 @@ import { VarDirective } from './directives/var.directive';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [FormErrorsComponent],
+  exports: [FormErrorsComponent, StepperComponent],
 })
 export class AppModule {}
