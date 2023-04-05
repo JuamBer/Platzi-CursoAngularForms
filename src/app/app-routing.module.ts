@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
+import { FormArrayComponent } from './components/form-array/form-array.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'form-array',
+    component: FormArrayComponent,
   },
 ];
 
